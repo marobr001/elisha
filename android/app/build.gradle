@@ -62,6 +62,10 @@ android {
        release {
            signingConfig signingConfigs.release
         }
+        debug {
+            // No signing configuration for debug builds
+            signingConfig null
+        }
     }
 }
 

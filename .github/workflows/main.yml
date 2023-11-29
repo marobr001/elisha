@@ -25,4 +25,4 @@ jobs:
         run: echo "YOUTUBE_API_KEY=\$YOUTUBE_API_KEY" >> .env
 
       - name: Build APK
-        run: flutter build apk
+        run: flutter build apk --debug
