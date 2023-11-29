@@ -20,11 +20,11 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 
-import 'package:elisha/src/config/keys.dart';
 import 'package:elisha/src/models/youtube_channel.dart';
 import 'package:elisha/src/models/youtube_video.dart';
 import 'package:elisha/src/providers/youtube_fetch_channel_future_provider.dart';
 import 'package:elisha/src/services/sunday_mass_service.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class YouTubeService {
   YouTubeService(this._dio);
@@ -33,12 +33,13 @@ class YouTubeService {
 
   final String _baseUrl = 'www.googleapis.com';
   String _nextPageToken = '';
+  String apiKey = dotenv.env['YOUTUBE_API_KEY']!;
 
   Future<YouTubeChannel> fetchChannel(String channelId) async {
     final Map<String, String> parameters = {
       'part': 'snippet, contentDetails, statistics',
       'id': channelId,
-      'key': YOUTUBE_API_KEY,
+      'key': apiKey,
     };
 
     Uri uri = Uri.https(_baseUrl, '/youtube/v3/channels', parameters);
@@ -64,7 +65,7 @@ class YouTubeService {
       'playlistId': playlistId,
       'maxResults': '8',
       'pageToken': _nextPageToken,
-      'key': YOUTUBE_API_KEY,
+      'key': apiKey,
     };
 
     final uri = Uri.https(_baseUrl, '/youtube/v3/playlistItems', parameters);

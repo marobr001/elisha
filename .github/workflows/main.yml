@@ -21,5 +21,8 @@ jobs:
       - name: Install Dependencies
         run: flutter pub get
 
+      - name: Set up Secrets
+        run: echo "YOUTUBE_API_KEY=\$YOUTUBE_API_KEY" >> .env
+
       - name: Build APK
         run: flutter build apk

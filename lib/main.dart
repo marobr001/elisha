@@ -25,6 +25,7 @@ import 'package:canton_ui/canton_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:device_preview_screenshot/device_preview_screenshot.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:elisha/src/config/constants.dart';
 import 'package:elisha/src/ui/views/login_wrapper.dart';
@@ -35,6 +36,7 @@ void main() async {
 
     await Hive.initFlutter();
     await Hive.openBox('elisha');
+    await dotenv.load(fileName: ".env");
 
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 

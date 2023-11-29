@@ -62,6 +62,7 @@ dependencies:
   flutter_linkify: ^6.0.0
   flutter_launcher_icons: ^0.13.1
   scroll_to_index: ^3.0.1
+  flutter_dotenv: ^5.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -120,6 +121,9 @@ flutter:
     - backend/kjv.json
     - backend/web.json
     - backend/ylt.json
+
+    # .env
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
